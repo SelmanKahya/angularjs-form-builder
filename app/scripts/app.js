@@ -10,24 +10,27 @@ angularApp.config(function ($routeProvider) {
         })
         .when('/forms', {
             templateUrl: 'views/list.html',
-            controller: 'ListCtrl'
+            controller: 'ListCtrl',
+            resolve: { forms : ListCtrl.resolve }
         })
-        .when('/form/create', {
+        .when('/forms/create', {
             templateUrl: 'views/create.html',
             controller: 'CreateCtrl'
         })
-        .when('/form/:id/view', {
+        .when('/forms/:id/view', {
             templateUrl: 'views/view.html',
-            controller: 'ViewCtrl'
+            controller: 'ViewCtrl',
+            resolve: { form : ViewCtrl.resolve }
         })
-        .when('/form/:id/edit', {
+        .when('/forms/:id/edit', {
             templateUrl: 'views/edit.html',
             controller: 'EditCtrl'
         })
         .otherwise({
             redirectTo: '/'
         });
-}).run(['$rootScope',  function($rootScope) {
+    }).run(['$rootScope',  function($rootScope) {
+
 
     }]);
 

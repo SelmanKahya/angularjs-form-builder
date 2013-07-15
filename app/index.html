@@ -31,7 +31,7 @@
             <div class="masthead" ng-controller="HeaderCtrl" >
                 <ul class="nav nav-pills pull-right">
                     <li ng-class="{active: ($location.path() == '/') }"><a href="#/">Home</a></li>
-                    <li ng-class="{active: ($location.path() == '/form/create') }"><a href="#/form/create">Create a Form</a></li>
+                    <li ng-class="{active: ($location.path() == '/forms/create') }"><a href="#/form/create">Create a Form</a></li>
                     <li ng-class="{active: ($location.path() == '/forms') }"><a href="#/forms">List Forms</a></li>
                 </ul>
                 <h3 class="muted">angularjs-form-builder</h3>
@@ -89,6 +89,7 @@
         <script src="scripts/controllers/view.js"></script>
         <script src="scripts/controllers/edit.js"></script>
         <script src="scripts/controllers/header.js"></script>
+        <script src="scripts/services/form-service.js"></script>
         <!-- endbuild -->
 </body>
 </html>

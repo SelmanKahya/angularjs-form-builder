@@ -1,10 +1,16 @@
 'use strict';
 
-angular.module('angularjsFormBuilderApp')
-  .controller('ListCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+var ListCtrl = angular.module('angularjsFormBuilderApp').controller('ListCtrl', function ($scope, forms) {
+
+    $scope.forms = forms;
+
+});
+
+
+ListCtrl.resolve = function($q, $timeout, FormService) {
+    var defer = $q.defer();
+    FormService.forms().then(function(forms) {
+        defer.resolve(forms);
+    });
+    return defer.promise;
+}
