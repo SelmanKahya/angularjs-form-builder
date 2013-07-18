@@ -10,7 +10,7 @@ angular.module('angularjsFormBuilderApp').service('FormService', function FormSe
             var promise = $http.get(formsJsonPath).then(function (response) {
                 var requestedForm = {};
                 angular.forEach(response.data, function (form) {
-                    if (form.id == id) requestedForm = form;
+                    if (form.form_id == id) requestedForm = form;
                 });
                 return requestedForm;
             });

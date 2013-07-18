@@ -1,16 +1,13 @@
 'use strict';
 
 var ViewCtrl = angular.module('angularjsFormBuilderApp').controller('ViewCtrl', function ($scope, form) {
-
     $scope.form = form;
-
 });
 
 
-
-ViewCtrl.resolve = function($q, $timeout, FormService) {
+ViewCtrl.resolve = function($q, FormService, $route) {
     var defer = $q.defer();
-    FormService.form('image').then(function(form) {
+    FormService.form($route.current.params.id).then(function(form) {
         defer.resolve(form);
     });
     return defer.promise;
