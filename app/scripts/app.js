@@ -11,7 +11,7 @@ angularApp.config(function ($routeProvider) {
         .when('/forms', {
             templateUrl: 'views/list.html',
             controller: 'ListCtrl',
-            resolve: { forms : ListCtrl.resolve }
+            resolve: { forms : ListCtrl.resolveForms }
         })
         .when('/forms/create', {
             templateUrl: 'views/create.html',
@@ -20,7 +20,7 @@ angularApp.config(function ($routeProvider) {
         .when('/forms/:id/view', {
             templateUrl: 'views/view.html',
             controller: 'ViewCtrl',
-            resolve: { form : ViewCtrl.resolve }
+            resolve: { form : ViewCtrl.resolveForm }
         })
         .when('/forms/:id/edit', {
             templateUrl: 'views/edit.html',

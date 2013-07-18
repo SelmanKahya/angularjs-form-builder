@@ -5,7 +5,7 @@ var ListCtrl = angular.module('angularjsFormBuilderApp').controller('ListCtrl', 
 });
 
 
-ListCtrl.resolve = function($q, FormService) {
+ListCtrl.resolveForms = function($q, FormService) {
     var defer = $q.defer();
     FormService.forms().then(function(forms) {
         defer.resolve(forms);

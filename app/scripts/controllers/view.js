@@ -5,7 +5,7 @@ var ViewCtrl = angular.module('angularjsFormBuilderApp').controller('ViewCtrl', 
 });
 
 
-ViewCtrl.resolve = function($q, FormService, $route) {
+ViewCtrl.resolveForm = function($q, FormService, $route) {
     var defer = $q.defer();
     FormService.form($route.current.params.id).then(function(form) {
         defer.resolve(form);
