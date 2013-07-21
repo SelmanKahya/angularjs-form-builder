@@ -1,6 +1,6 @@
 'use strict';
 
-var angularApp = angular.module('angularjsFormBuilderApp', []);
+var angularApp = angular.module('angularjsFormBuilderApp', ['ui.bootstrap']);
 
 angularApp.config(function ($routeProvider) {
     $routeProvider

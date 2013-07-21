@@ -5,6 +5,16 @@ angular.module('angularjsFormBuilderApp').service('FormService', function FormSe
     var formsJsonPath = '/static-data/sample_forms.json';
 
     return {
+        fields:[
+            {
+                name : 'textfield',
+                value : 'Textfield'
+            },
+            {
+                name : 'radio',
+                value : 'Radio Buttons'
+            }
+        ],
         form:function (id) {
             // $http returns a promise, which has a then function, which also returns a promise
             var promise = $http.get(formsJsonPath).then(function (response) {

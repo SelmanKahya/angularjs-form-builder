@@ -1,1 +1,22 @@
-<p>This is the create view.</p>
+<h1>Create a new form</h1> <br>
+<blockquote>
+    <p>Select field type you want to add to the form below and click on 'Add Field' button. Don't forget to set fields properties. You can also change field order by drag & drop.</p>
+</blockquote>
+
+<div class="well">
+    <div class="add-field">
+        <select ng-model="addField.new" ng-options="type.name as type.value for type in addField.types"></select>
+        <button type="submit" class="btn btn-primary" ng-click="addNewField()">Add Field</button>
+    </div>
+    <hr>
+    <h2>Fields</h2>
+    <p ng-show="form.fields.length == 0">No fields added yet.</p>
+    <accordion close-others="accordion.oneAtATime">
+        <accordion-group heading="{{field.title}}" ng-repeat="field in accordion.fields">
+            {{field.content}}
+        </accordion-group>
+    </accordion>
+
+    <hr>
+    <h2>Form Properties</h2>
+</div>
