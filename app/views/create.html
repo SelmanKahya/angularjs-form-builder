@@ -1,22 +1,41 @@
 <h1>Create a new form</h1> <br>
 <blockquote>
-    <p>Select field type you want to add to the form below and click on 'Add Field' button. Don't forget to set fields properties. You can also change field order by drag & drop.</p>
+    <p>Select field type you want to add to the form below and click on 'Add Field' button. Don't forget to set field properties. You can also change field order by drag&drop.</p>
 </blockquote>
 
 <div class="well">
-    <div class="add-field">
-        <select ng-model="addField.new" ng-options="type.name as type.value for type in addField.types"></select>
-        <button type="submit" class="btn btn-primary" ng-click="addNewField()">Add Field</button>
+    <div class="form-properties">
+    <h3>Form Properties</h3>
+        <div class="row">
+            <div class="span2">Form ID: </div>
+            <div class="span4"><input type="text" name="form-id" ng-disabled="true" ng-model="form.form_id"></div>
+        </div>
+        <div class="row">
+            <div class="span2">Form Name:</div>
+            <div class="span4"><input type="text" name="form-name" ng-model="form.form_name"></div>
+        </div>
     </div>
-    <hr>
-    <h2>Fields</h2>
-    <p ng-show="form.fields.length == 0">No fields added yet.</p>
-    <accordion close-others="accordion.oneAtATime">
-        <accordion-group heading="{{field.title}}" ng-repeat="field in accordion.fields">
-            {{field.content}}
-        </accordion-group>
-    </accordion>
 
     <hr>
-    <h2>Form Properties</h2>
+
+    <div class="form-fields">
+        <h3>Fields</h3>
+        <div class="add-field">
+            <select ng-model="addField.new" ng-options="type.name as type.value for type in addField.types"></select>
+            <button type="submit" class="btn" ng-click="addNewField()"><i class="icon-plus"></i> Add Field</button>
+        </div>
+        <hr>
+        <p ng-show="form.fields.length == 0">No fields added yet.</p>
+        <accordion close-others="accordion.oneAtATime">
+            <accordion-group heading="{{field.title}}" ng-repeat="field in accordion.fields">
+                {{field.content}}
+
+                <field-directive editmode="true" field="form.fields[field.fieldID]"></field-directive>
+            </accordion-group>
+        </accordion>
+    </div>
+
+    <p class="text-center">
+        <button class="btn btn-primary right" type="button"><i class="icon-pencil icon-white"></i> Save and View Form</button>
+    </p>
 </div>

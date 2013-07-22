@@ -3,6 +3,8 @@
 angular.module('angularjsFormBuilderApp') .controller('CreateCtrl', function ($scope, FormService) {
 
     $scope.form = {};
+    $scope.form.form_id = 1;
+    $scope.form.form_name = 'My Form';
     $scope.form.fields = [];
 
     // Add field drop-down:
@@ -32,7 +34,7 @@ angular.module('angularjsFormBuilderApp') .controller('CreateCtrl', function ($s
         $scope.form.fields[$scope.addField.lastAddedID] = newField;
 
         // create new accordion item
-        $scope.accordion.fields[$scope.addField.lastAddedID] = {title: $scope.form.fields[$scope.addField.lastAddedID].field_title, content:''};
+        $scope.accordion.fields[$scope.addField.lastAddedID] = {fieldID: $scope.addField.lastAddedID, title: $scope.form.fields[$scope.addField.lastAddedID].field_title, content:''};
 
         // incr field_id counter
         $scope.addField.lastAddedID++;
