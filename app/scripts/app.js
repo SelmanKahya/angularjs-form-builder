@@ -8,11 +8,6 @@ angularApp.config(function ($routeProvider) {
             templateUrl: 'views/main.html',
             controller: 'MainCtrl'
         })
-        .when('/forms', {
-            templateUrl: 'views/list.html',
-            controller: 'ListCtrl',
-            resolve: { forms : ListCtrl.resolveForms }
-        })
         .when('/forms/create', {
             templateUrl: 'views/create.html',
             controller: 'CreateCtrl'

@@ -33,14 +33,5 @@ angular.module('angularjsFormBuilderApp').service('FormService', function FormSe
             });
             return promise;
         },
-        addForm:function (form) {
-
-        },
-        updateForm:function (form) {
-
-        },
-        deleteForm:function (id) {
-
-        }
     };
 });
