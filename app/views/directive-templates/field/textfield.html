@@ -31,6 +31,8 @@
 </div>
 
 <div ng-show="!editmode">
-    <span>{{field.field_title}}</span>
-    <input type="textfield" name="{{field.field_name}}" ng-model="field.field_value" value="{{field.field_value}}">
+    <div class="field row">
+        <div class="span2">{{field.field_title}}:</div>
+        <div class="span4"><input type="text" name="{{field.field_name}}" ng-model="field.field_value" value="{{field.field_value}}"></div>
+    </div>
 </div>
