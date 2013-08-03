@@ -1,0 +1,10 @@
+<div ng-show="!editmode">
+    <div class="field row">
+        <div class="span2">{{field.field_title}}:</div>
+        <div class="span4">
+            <select name="{{field.field_name}}" ng-model="field.field_value"
+                    ng-options="option.option_id as option.option_title for option in field.field_options"></select>
+        </div>
+    </div>
+</div>
+<br>
