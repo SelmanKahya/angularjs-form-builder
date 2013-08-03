@@ -67,7 +67,7 @@
             },
             "7" : {
                 "field_id" : 7,
-                "field_title" : "Which browser are you using?",
+                "field_title" : "Your browser",
                 "field_type" : "dropdown",
                 "field_name" : "browser",
                 "field_value" : "1",
@@ -76,25 +76,21 @@
                     {
                         "option_id" : 1,
                         "option_title" : "-- Please Select --",
-                        "option_value" : 1,
                         "option_order" : 1
                     },
                     {
                         "option_id" : 2,
                         "option_title" : "Internet Explorer",
-                        "option_value" : 2,
                         "option_order" : 2
                     },
                     {
                         "option_id" : 3,
                         "option_title" : "Google Chrome",
-                        "option_value" : 3,
                         "option_order" : 3
                     },
                     {
                         "option_id" : 4,
                         "option_title" : "Mozilla Firefox",
-                        "option_value" : 4,
                         "option_order" : 4
                     }
                 ]
