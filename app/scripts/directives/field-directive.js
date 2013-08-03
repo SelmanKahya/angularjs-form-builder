@@ -29,6 +29,9 @@ angular.module('angularjsFormBuilderApp')
                 case 'hidden':
                     templateUrl = './views/directive-templates/field/hidden.html';
                     break;
+                case 'password':
+                    templateUrl = './views/directive-templates/field/password.html';
+                    break;
                 case 'radio':
                     templateUrl = './views/directive-templates/field/radio.html';
                     break;

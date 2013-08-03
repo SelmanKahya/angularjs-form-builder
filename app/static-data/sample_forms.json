@@ -24,7 +24,7 @@
                 "field_title" : "Gender",
                 "field_type" : "radio",
                 "field_name" : "gender",
-                "field_value" : "1",
+                "field_value" : "2",
                 "field_order" : 3,
                 "field_options" : [
                     {
@@ -51,19 +51,27 @@
             },
             "5" : {
                 "field_id" : 5,
-                "field_title" : "Birth Date",
-                "field_type" : "date",
-                "field_name" : "birth",
-                "field_value" : "01.01.1960",
+                "field_title" : "Password",
+                "field_type" : "password",
+                "field_name" : "password",
+                "field_value" : "123456",
                 "field_order" : 5
             },
             "6" : {
                 "field_id" : 6,
+                "field_title" : "Birth Date",
+                "field_type" : "date",
+                "field_name" : "birth",
+                "field_value" : "01.21.1980",
+                "field_order" : 6
+            },
+            "7" : {
+                "field_id" : 7,
                 "field_title" : "Which browser are you using?",
                 "field_type" : "dropdown",
                 "field_name" : "browser",
                 "field_value" : "1",
-                "field_order" : 6,
+                "field_order" : 7,
                 "field_options" : [
                     {
                         "option_id" : 1,
@@ -91,29 +99,29 @@
                     }
                 ]
             },
-            "7" : {
-                "field_id" : 7,
+            "8" : {
+                "field_id" : 8,
                 "field_title" : "Additional Comments",
                 "field_type" : "textarea",
                 "field_name" : "comments",
                 "field_value" : "Please type here..",
-                "field_order" : 7
-            },
-            "8" : {
-                "field_id" : 8,
-                "field_title" : "I accept the terms and conditions.",
-                "field_type" : "checkbox",
-                "field_name" : "terms",
-                "field_value" : "0",
                 "field_order" : 8
             },
             "9" : {
                 "field_id" : 9,
+                "field_title" : "I accept the terms and conditions.",
+                "field_type" : "checkbox",
+                "field_name" : "terms",
+                "field_value" : "0",
+                "field_order" : 9
+            },
+            "10" : {
+                "field_id" : 10,
                 "field_title" : "I have a secret.",
                 "field_type" : "hidden",
                 "field_name" : "secret",
                 "field_value" : "X",
-                "field_order" : 9
+                "field_order" : 10
             }
         }
     }
