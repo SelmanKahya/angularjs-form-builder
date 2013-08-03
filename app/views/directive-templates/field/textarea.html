@@ -1,0 +1,8 @@
+<div ng-show="!editmode">
+    <div class="field row">
+        <div class="span2">{{field.field_title}}:</div>
+        <div class="span4">
+            <textarea type="text" name="{{field.field_name}}" ng-model="field.field_value" value="{{field.field_value}}"></textarea>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div ng-show="!editmode">
+    <div class="field row">
+        <div class="span2">{{field.field_title}}:</div>
+        <div class="span4">
+            <div ng-repeat="option in field.field_options" class="row-fluid">
+                <label>
+                    <input type="radio"  name="{{field.field_name}}" value="{{option.option_value}}" ng-model="field.field_value"/>
+                    &nbsp;<span ng-bind="option.option_title"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
