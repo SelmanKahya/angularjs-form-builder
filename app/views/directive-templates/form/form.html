@@ -1,5 +1,23 @@
-<div ng-repeat="field in form.form_fields">
-    <field-directive field="field">
+<h2>{{ form.form_name }}</h2>
+<div ng-show="!editmode">
+    <div class="field row">
+        <div class="span2">Form ID:</div>
+        <div class="span4">{{ form.form_id }}</div>
+    </div>
+</div>
 
-    </field-directive>
+<form name="myForm" id="myForm">
+    <div ng-repeat="field in form.form_fields">
+        <field-directive field="field">
+
+        </field-directive>
+    </div>
+</form>
+
+
+<div class="form-actions">
+    <p class="text-center">
+        <button class="btn btn-success right" type="button" ng-click="submit()"><i class="icon-edit icon-white"></i> Submit Form</button>
+        <button class="btn btn-danger right" type="button" ng-click="reset()"><i class="icon-remove icon-white"></i> Reset</button>
+    </p>
 </div>
