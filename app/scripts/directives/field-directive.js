@@ -52,8 +52,7 @@ angular.module('angularjsFormBuilderApp')
             template: '<div>{{field}}</div>',
             restrict: 'E',
             scope: {
-                field:'=',
-                editmode:'='
+                field:'='
             },
             link: linker
         };
