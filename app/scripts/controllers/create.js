@@ -1,11 +1,14 @@
 'use strict';
 
-angular.module('angularjsFormBuilderApp') .controller('CreateCtrl', function ($scope, FormService) {
+angular.module('angularjsFormBuilderApp') .controller('CreateCtrl', function ($scope, $dialog, FormService) {
+
+    // preview form mode
+    $scope.previewMode = false;
 
     $scope.form = {};
     $scope.form.form_id = 1;
     $scope.form.form_name = 'My Form';
-    $scope.form.fields = [];
+    $scope.form.form_fields = [];
 
     // Add field drop-down:
     $scope.addField = {};
@@ -16,10 +19,11 @@ angular.module('angularjsFormBuilderApp') .controller('CreateCtrl', function ($s
     // ACCORDION Settings
     $scope.accordion = {}
     $scope.accordion.oneAtATime = true;
-    $scope.accordion.fields = [];
 
-    $scope.newFieldID = 0;
     $scope.addNewField = function(){
+
+        // incr field_id counter
+        $scope.addField.lastAddedID++;
 
         var newField = {
             "field_id" : $scope.addField.lastAddedID,
@@ -31,12 +35,27 @@ angular.module('angularjsFormBuilderApp') .controller('CreateCtrl', function ($s
         };
 
         // put newField into fields array
-        $scope.form.fields[$scope.addField.lastAddedID] = newField;
+        $scope.form.form_fields.push(newField);
+    }
 
-        // create new accordion item
-        $scope.accordion.fields[$scope.addField.lastAddedID] = {fieldID: $scope.addField.lastAddedID, title: $scope.form.fields[$scope.addField.lastAddedID].field_title, content:''};
+    $scope.deleteField = function (field_id){
+        for(var i = 0; i < $scope.form.form_fields.length; i++){
+            if($scope.form.form_fields[i].field_id == field_id){
+                $scope.form.form_fields.splice(i, 1);
+                break;
+            }
+        }
+    }
 
-        // incr field_id counter
-        $scope.addField.lastAddedID++;
+    $scope.previewToggle = function(){
+        if($scope.form.form_fields == null || $scope.form.form_fields.length == 0) {
+            var title = 'Error';
+            var msg = 'No fields added yet, please add fields to the form before preview.';
+            var btns = [{result:'ok', label: 'OK', cssClass: 'btn-primary'}];
+
+            $dialog.messageBox(title, msg, btns).open();
+        }
+        else
+            $scope.previewMode = !$scope.previewMode;
     }
 });

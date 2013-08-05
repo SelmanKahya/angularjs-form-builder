@@ -4,21 +4,21 @@
 </blockquote>
 
 <div class="well">
-    <div class="form-properties">
-    <h3>Form Properties</h3>
-        <div class="row">
-            <div class="span2">Form ID: </div>
-            <div class="span4"><input type="text" name="form-id" ng-disabled="true" ng-model="form.form_id"></div>
+    <div class="form-fields" ng-hide="previewMode">
+        <div class="form-properties">
+            <h3>Form Properties</h3>
+            <div class="row">
+                <div class="span2">Form ID: </div>
+                <div class="span4"><input type="text" name="form-id" ng-disabled="true" ng-model="form.form_id"></div>
+            </div>
+            <div class="row">
+                <div class="span2">Form Name:</div>
+                <div class="span4"><input type="text" name="form-name" ng-disabled="previewMode" ng-model="form.form_name"></div>
+            </div>
         </div>
-        <div class="row">
-            <div class="span2">Form Name:</div>
-            <div class="span4"><input type="text" name="form-name" ng-model="form.form_name"></div>
-        </div>
-    </div>
 
-    <hr>
+        <hr>
 
-    <div class="form-fields">
         <h3>Fields</h3>
         <div class="add-field">
             <select ng-model="addField.new" ng-options="type.name as type.value for type in addField.types"></select>
@@ -27,12 +27,10 @@
         <hr>
         <p ng-show="form.fields.length == 0">No fields added yet.</p>
         <accordion close-others="accordion.oneAtATime">
-            <accordion-group heading="{{field.title}}" ng-repeat="field in accordion.fields">
-
-                {{ field }}
+            <accordion-group heading="{{field.field_title}}" ng-repeat="field in form.form_fields">
 
                 <div class="accordion-edit">
-                    <button class="btn btn-danger pull-right" type="button"><i class="icon-trash icon-white"></i> Delete</button>
+                    <button class="btn btn-danger pull-right" type="button" ng-click="deleteField(field.field_id)"><i class="icon-trash icon-white"></i> Delete</button>
 
                     <div class="row">
                         <div class="span2">Field ID: </div>
@@ -64,10 +62,24 @@
                 </div>
             </accordion-group>
         </accordion>
+
+        <p class="text-center">
+            <button class="btn btn-primary right" type="button" ng-click="previewToggle()"><i class="icon-eye-open icon-white"></i> Preview Form</button>
+            <button class="btn btn-danger right" type="button" ng-click="reset()"><i class="icon-refresh icon-white"></i> Reset</button>
+        </p>
+
+        <br><br> <hr>
+        <h4>Form object content:</h4>
+        <pre>{{ form | json }}</pre>
     </div>
 
-    <p class="text-center">
-        <button class="btn btn-primary right" type="button" ng-click="preview()"><i class="icon-eye-open icon-white"></i> Preview Form</button>
-        <button class="btn btn-danger right" type="button" ng-click="reset()"><i class="icon-refresh icon-white"></i> Reset</button>
-    </p>
+    <div class="form-fields-preview" ng-show="previewMode">
+        <form-directive form="form"></form-directive>
+
+
+        <p class="text-center">
+            <button class="btn btn-primary btn-large right" type="button" ng-click="previewToggle()"><i class="icon-arrow-left icon-white"></i> Back to Create Mode</button>
+        </p>
+    </div>
 </div>
+
