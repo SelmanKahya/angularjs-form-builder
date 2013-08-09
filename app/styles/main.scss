@@ -70,3 +70,8 @@ body {
 .form-field-label {
   display: inline;
 }
+
+.required-error {
+  color:red;
+  font-size: smaller;
+}
