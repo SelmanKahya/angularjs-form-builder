@@ -73,9 +73,13 @@
             <button class="btn btn-danger right" type="button" ng-click="reset()"><i class="icon-refresh icon-white"></i> Reset</button>
         </p>
 
-        <br><br> <hr>
-        <h4>Form object content:</h4>
-        <pre>{{ form | json }}</pre>
+        <br><hr>
+        <a ng-show="!showJson" ng-click="showJson = true">Show form json object</a>
+        <a ng-show="showJson" ng-click="showJson = false">Hide Form object content</a><br><br>
+        <div ng-show="showJson">
+            <h4>Form object content:</h4>
+            <pre>{{ form | json }}</pre>
+        </div>
     </div>
 
     <div class="form-fields-preview" ng-show="previewMode">
