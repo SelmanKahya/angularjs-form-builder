@@ -1,6 +1,6 @@
 <h1>Create a new form</h1> <br>
 <blockquote>
-    <p>Select field type you want to add to the form below and click on 'Add Field' button. Don't forget to set field properties. You can also change field order by drag&drop(?).</p>
+    <p>Select field type you want to add to the form below and click on 'Add Field' button. Don't forget to set field properties. After you finish creating the form, you can preview the form by clicking Preview Form button.</p>
 </blockquote>
 
 <div class="well">
@@ -25,7 +25,7 @@
             <button type="submit" class="btn" ng-click="addNewField()"><i class="icon-plus"></i> Add Field</button>
         </div>
         <hr>
-        <p ng-show="form.fields.length == 0">No fields added yet.</p>
+        <p ng-show="form.form_fields.length == 0">No fields added yet.</p>
         <accordion close-others="accordion.oneAtATime">
             <accordion-group heading="{{field.field_title}}" ng-repeat="field in form.form_fields">
 
