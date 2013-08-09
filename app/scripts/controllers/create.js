@@ -32,7 +32,7 @@ angular.module('angularjsFormBuilderApp') .controller('CreateCtrl', function ($s
             "field_title" : "New field - " + ($scope.addField.lastAddedID),
             "field_type" : $scope.addField.new,
             "field_value" : "",
-            "field_required" : 1
+            "field_required" : true
         };
 
         // put newField into fields array
@@ -64,7 +64,9 @@ angular.module('angularjsFormBuilderApp') .controller('CreateCtrl', function ($s
 
             $dialog.messageBox(title, msg, btns).open();
         }
-        else
+        else {
             $scope.previewMode = !$scope.previewMode;
+            $scope.form.submitted = false;
+        }
     }
 });

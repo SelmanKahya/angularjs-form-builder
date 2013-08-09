@@ -8,21 +8,21 @@
                 "field_title" : "First Name",
                 "field_type" : "textfield",
                 "field_value" : "John",
-                "field_required" : 1
+                "field_required" : true
             },
             "2" : {
                 "field_id" : 2,
                 "field_title" : "Last Name",
                 "field_type" : "textfield",
                 "field_value" : "Doe",
-                "field_required" : 1
+                "field_required" : true
             },
             "3" : {
                 "field_id" : 3,
                 "field_title" : "Gender",
                 "field_type" : "radio",
                 "field_value" : "2",
-                "field_required" : 1,
+                "field_required" : true,
                 "field_options" : [
                     {
                         "option_id" : 1,
@@ -41,28 +41,28 @@
                 "field_title" : "Email Address",
                 "field_type" : "email",
                 "field_value" : "test@example.com",
-                "field_required" : 1
+                "field_required" : true
             },
             "5" : {
                 "field_id" : 5,
                 "field_title" : "Password",
                 "field_type" : "password",
                 "field_value" : "123456",
-                "field_required" : 1
+                "field_required" : true
             },
             "6" : {
                 "field_id" : 6,
                 "field_title" : "Birth Date",
                 "field_type" : "date",
                 "field_value" : "01.21.1980",
-                "field_required" : 1
+                "field_required" : true
             },
             "7" : {
                 "field_id" : 7,
                 "field_title" : "Your browser",
                 "field_type" : "dropdown",
                 "field_value" : "1",
-                "field_required" : 0,
+                "field_required" : false,
                 "field_options" : [
                     {
                         "option_id" : 1,
@@ -91,21 +91,21 @@
                 "field_title" : "Additional Comments",
                 "field_type" : "textarea",
                 "field_value" : "Please type here..",
-                "field_required" : 0
+                "field_required" : false
             },
             "9" : {
                 "field_id" : 9,
                 "field_title" : "I accept the terms and conditions.",
                 "field_type" : "checkbox",
                 "field_value" : "0",
-                "field_required" : 1
+                "field_required" : true
             },
             "10" : {
                 "field_id" : 10,
                 "field_title" : "I have a secret.",
                 "field_type" : "hidden",
                 "field_value" : "X",
-                "field_required" : 0
+                "field_required" : false
             }
         }
     }
