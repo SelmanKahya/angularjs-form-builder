@@ -29,9 +29,8 @@ angular.module('angularjsFormBuilderApp') .controller('CreateCtrl', function ($s
             "field_id" : $scope.addField.lastAddedID,
             "field_title" : "New field - " + ($scope.addField.lastAddedID),
             "field_type" : $scope.addField.new,
-            "field_name" : "",
             "field_value" : "",
-            "field_order" : $scope.addField.lastAddedID
+            "field_required" : 1
         };
 
         // put newField into fields array

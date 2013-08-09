@@ -52,8 +52,17 @@
                         <div class="span4"><input type="text" ng-model="field.field_value" value="{{field.field_value}}"></div>
                     </div>
                     <div class="row">
-                        <div class="span2">Field Order:</div>
-                        <div class="span4"><input type="text" ng-model="field.field_order" value="{{field.field_order}}"></div>
+                        <div class="span2">Required:</div>
+                        <div class="span4">
+                            <label>
+                                <input type="radio" value="1" ng-selected ng-model="field.field_required"/>
+                                &nbsp; Yes
+                            </label>
+                            <label>
+                                <input type="radio" value="0" ng-model="field.field_required"/>
+                                &nbsp; No
+                            </label>
+                        </div>
                     </div>
                 </div>
             </accordion-group>
