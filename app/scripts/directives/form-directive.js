@@ -6,10 +6,10 @@ angular.module('angularjsFormBuilderApp')
         controller: function($scope){
             $scope.submit = function(){
                 alert('Form submitted..');
-                $scope.submitted = true;
+                $scope.form.submitted = true;
             }
 
-            $scope.reset = function(){
+            $scope.cancel = function(){
                 alert('Form canceled..');
                 console.log($scope.myForm)
             }
