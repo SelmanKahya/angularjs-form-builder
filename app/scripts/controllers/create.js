@@ -5,12 +5,13 @@ angular.module('angularjsFormBuilderApp') .controller('CreateCtrl', function ($s
     // preview form mode
     $scope.previewMode = false;
 
+    // our form
     $scope.form = {};
     $scope.form.form_id = 1;
     $scope.form.form_name = 'My Form';
     $scope.form.form_fields = [];
 
-    // Add field drop-down:
+    // add field drop-down:
     $scope.addField = {};
     $scope.addField.types = FormService.fields;
     $scope.addField.new = $scope.addField.types[0].name;
@@ -20,6 +21,7 @@ angular.module('angularjsFormBuilderApp') .controller('CreateCtrl', function ($s
     $scope.accordion = {}
     $scope.accordion.oneAtATime = true;
 
+    // create new field
     $scope.addNewField = function(){
 
         // incr field_id counter
@@ -37,6 +39,7 @@ angular.module('angularjsFormBuilderApp') .controller('CreateCtrl', function ($s
         $scope.form.form_fields.push(newField);
     }
 
+    // deletes particular field
     $scope.deleteField = function (field_id){
         for(var i = 0; i < $scope.form.form_fields.length; i++){
             if($scope.form.form_fields[i].field_id == field_id){
@@ -46,6 +49,13 @@ angular.module('angularjsFormBuilderApp') .controller('CreateCtrl', function ($s
         }
     }
 
+    // deletes everything
+    $scope.reset = function (){
+        $scope.form.form_fields.splice(0, $scope.form.form_fields.length);
+        $scope.addField.lastAddedID = 0;
+    }
+
+    // preview Form button click handler
     $scope.previewToggle = function(){
         if($scope.form.form_fields == null || $scope.form.form_fields.length == 0) {
             var title = 'Error';
