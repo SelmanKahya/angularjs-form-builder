@@ -1,7 +1,5 @@
 'use strict';
 
-angular.module('angularjsFormBuilderApp')
-  .controller('MainCtrl', function ($scope) {
+angularApp.controller('MainCtrl', function ($scope) {
 
-
-  });
+});

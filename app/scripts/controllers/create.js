@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularjsFormBuilderApp') .controller('CreateCtrl', function ($scope, $dialog, FormService) {
+angularApp.controller('CreateCtrl', function ($scope, $dialog, FormService) {
 
     // preview form mode
     $scope.previewMode = false;

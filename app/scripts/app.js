@@ -14,12 +14,7 @@ angularApp.config(function ($routeProvider) {
         })
         .when('/forms/:id/view', {
             templateUrl: 'views/view.html',
-            controller: 'ViewCtrl',
-            resolve: { form : ViewCtrl.resolveForm }
-        })
-        .when('/forms/:id/edit', {
-            templateUrl: 'views/edit.html',
-            controller: 'EditCtrl'
+            controller: 'ViewCtrl'
         })
         .otherwise({
             redirectTo: '/'

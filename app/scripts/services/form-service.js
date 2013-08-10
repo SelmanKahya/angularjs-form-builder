@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('angularjsFormBuilderApp').service('FormService', function FormService($http) {
+angularApp.service('FormService', function FormService($http) {
 
-    var formsJsonPath = '/static-data/sample_forms.json';
+    var formsJsonPath = './static-data/sample_forms.json';
 
     return {
         fields:[
