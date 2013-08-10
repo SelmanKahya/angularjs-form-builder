@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularjsFormBuilderApp').directive('fieldDirective', function ($http, $compile) {
+angularApp.directive('fieldDirective', function ($http, $compile) {
 
         var getTemplateUrl = function(field) {
             var type = field.field_type;

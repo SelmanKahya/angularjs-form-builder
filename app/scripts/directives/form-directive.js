@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('angularjsFormBuilderApp')
-  .directive('formDirective', function ($dialog) {
+angularApp.directive('formDirective', function () {
     return {
         controller: function($scope){
             $scope.submit = function(){

@@ -3,6 +3,7 @@
 var angularApp = angular.module('angularjsFormBuilderApp', ['ui.bootstrap', '$strap.directives']);
 
 angularApp.config(function ($routeProvider) {
+
     $routeProvider
         .when('/', {
             templateUrl: 'views/main.html',
@@ -19,9 +20,7 @@ angularApp.config(function ($routeProvider) {
         .otherwise({
             redirectTo: '/'
         });
-    }).run(['$rootScope',  function($rootScope) {
 
-
-    }]);
+}).run(['$rootScope',  function() {}]);
 
 
