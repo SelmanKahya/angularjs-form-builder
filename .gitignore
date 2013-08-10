@@ -1,7 +1,9 @@
+app/bower_components
 node_modules
+
 dist
+
+npm-debug.log
 .tmp
 .sass-cache
-app/bower_components
 .idea/
-npm-debug.log
