@@ -1,0 +1,9 @@
+{
+  "name": "bootstrap-select",
+  "version": "0.0.0",
+  "commit": "5eaa39ef5e1eec8755425f68d042645412fdcd66",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/silviomoreto/bootstrap-select.git"
+  }
+}

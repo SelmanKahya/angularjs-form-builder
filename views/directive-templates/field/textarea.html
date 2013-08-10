@@ -1,0 +1,7 @@
+<div class="field row">
+    <div class="span2">{{field.field_title}}:</div>
+    <div class="span4">
+        <textarea type="text" ng-model="field.field_value" value="{{field.field_value}}" ng-required="field.field_required"></textarea>
+        <span class="required-error" ng-show="field.field_required && !field.field_value">* required</span>
+    </div>
+</div>

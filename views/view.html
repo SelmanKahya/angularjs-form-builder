@@ -1,0 +1,7 @@
+<form-directive form="form"></form-directive><hr>
+<a ng-show="!showJson" ng-click="showJson = true">Show form json object</a>
+<a ng-show="showJson" ng-click="showJson = false">Hide form json object</a><br><br>
+<div ng-show="showJson">
+    <h4>Form object content:</h4>
+    <pre>{{ form | json }}</pre>
+</div>
