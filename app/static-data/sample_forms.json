@@ -47,7 +47,7 @@
                 "field_id" : 5,
                 "field_title" : "Password",
                 "field_type" : "password",
-                "field_value" : "123456",
+                "field_value" : "",
                 "field_required" : true
             },
             "6" : {
