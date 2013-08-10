@@ -5,27 +5,27 @@ angularApp.controller('CreateCtrl', function ($scope, $dialog, FormService) {
     // preview form mode
     $scope.previewMode = false;
 
-    // our form
+    // new form
     $scope.form = {};
     $scope.form.form_id = 1;
     $scope.form.form_name = 'My Form';
     $scope.form.form_fields = [];
 
-    // form using for preview purposes, form will be copied into this
-    // otherwise, actual form value gets manipulated in preview mode
+    // previewForm - for preview purposes, form will be copied into this
+    // otherwise, actual form might get manipulated in preview mode
     $scope.previewForm = {};
 
-    // add field drop-down:
+    // add new field drop-down:
     $scope.addField = {};
     $scope.addField.types = FormService.fields;
     $scope.addField.new = $scope.addField.types[0].name;
     $scope.addField.lastAddedID = 0;
 
-    // ACCORDION Settings
+    // accordion settings
     $scope.accordion = {}
     $scope.accordion.oneAtATime = true;
 
-    // create new field
+    // create new field button click
     $scope.addNewField = function(){
 
         // incr field_id counter
@@ -43,7 +43,7 @@ angularApp.controller('CreateCtrl', function ($scope, $dialog, FormService) {
         $scope.form.form_fields.push(newField);
     }
 
-    // deletes particular field
+    // deletes particular field on button click
     $scope.deleteField = function (field_id){
         for(var i = 0; i < $scope.form.form_fields.length; i++){
             if($scope.form.form_fields[i].field_id == field_id){
@@ -53,11 +53,39 @@ angularApp.controller('CreateCtrl', function ($scope, $dialog, FormService) {
         }
     }
 
-    // deletes everything
-    $scope.reset = function (){
-        $scope.form.form_fields.splice(0, $scope.form.form_fields.length);
-        $scope.addField.lastAddedID = 0;
+    // add new option to the field
+    $scope.addOption = function (field){
+        if(!field.field_options)
+            field.field_options = new Array();
+
+        var lastOptionID = 0;
+
+        if(field.field_options[field.field_options.length-1])
+            lastOptionID = field.field_options[field.field_options.length-1].option_id;
+
+        // new option's id
+        var option_id = lastOptionID + 1;
+
+        var newOption = {
+            "option_id" : option_id,
+            "option_title" : "Option " + option_id,
+            "option_value" : option_id
+        };
+
+        // put new option into field_options array
+        field.field_options.push(newOption);
     }
+
+    // delete particular option
+    $scope.deleteOption = function (field, option){
+        for(var i = 0; i < field.field_options.length; i++){
+            if(field.field_options[i].option_id == option.option_id){
+                field.field_options.splice(i, 1);
+                break;
+            }
+        }
+    }
+
 
     // preview form
     $scope.previewOn = function(){
@@ -75,14 +103,13 @@ angularApp.controller('CreateCtrl', function ($scope, $dialog, FormService) {
         }
     }
 
-    // hide previewing form, go back to create mode
+    // hide preview form, go back to create mode
     $scope.previewOff = function(){
         $scope.previewMode = !$scope.previewMode;
         $scope.form.submitted = false;
     }
 
-
-    // decides whether options field will be shown (true for dropdown and radio fields)
+    // decides whether field options block will be shown (true for dropdown and radio fields)
     $scope.showAddOptions = function (field){
         if(field.field_type == "radio" || field.field_type == "dropdown")
             return true;
@@ -90,34 +117,9 @@ angularApp.controller('CreateCtrl', function ($scope, $dialog, FormService) {
             return false;
     }
 
-    // add new option to field
-    $scope.addOption = function (field){
-        if(!field.field_options)
-            field.field_options = new Array();
-
-        var lastOptionID = 0;
-        if(field.field_options[field.field_options.length-1])
-            lastOptionID = field.field_options[field.field_options.length-1].option_id;
-
-        var option_id = lastOptionID + 1;
-
-        var newOption = {
-            "option_id" : option_id,
-            "option_title" : "Option " + option_id,
-            "option_value" : option_id
-        };
-
-        // put newField into fields array
-        field.field_options.push(newOption);
-    }
-
-    // add new option to field
-    $scope.deleteOption = function (field, option){
-        for(var i = 0; i < field.field_options.length; i++){
-            if(field.field_options[i].option_id == option.option_id){
-                field.field_options.splice(i, 1);
-                break;
-            }
-        }
+    // deletes all the fields
+    $scope.reset = function (){
+        $scope.form.form_fields.splice(0, $scope.form.form_fields.length);
+        $scope.addField.lastAddedID = 0;
     }
 });

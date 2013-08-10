@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('angularjsFormBuilderApp')
-  .directive('fieldDirective', function ($http, $compile) {
+angular.module('angularjsFormBuilderApp').directive('fieldDirective', function ($http, $compile) {
 
         var getTemplateUrl = function(field) {
             var type = field.field_type;
@@ -39,7 +38,7 @@ angular.module('angularjsFormBuilderApp')
             return templateUrl;
         }
 
-        var linker = function(scope, element, attrs) {
+        var linker = function(scope, element) {
             // GET template content from path
             var templateUrl = getTemplateUrl(scope.field);
             $http.get(templateUrl).success(function(data) {
