@@ -51,6 +51,17 @@
                         <div class="span2">Field Default Value:</div>
                         <div class="span4"><input type="text" ng-model="field.field_value" value="{{field.field_value}}"></div>
                     </div>
+                    <div class="row" ng-show="showAddOptions(field)">
+                        <div class="span2">Field Options:</div>
+                        <div class="span6">
+                            <div ng-repeat="option in field.field_options">
+                                <input type="text" ng-model="option.option_title" value="{{option.option_title}}">
+                                <a class="btn btn-danger btn-mini right" type="button" ng-click="deleteOption(field, option)"><i class="icon-minus icon-white"></i></a>
+                                <span class="label label-inverse">Value: {{ option.option_value }}</span>
+                            </div>
+                            <button class="btn btn-primary btn-small" type="button" ng-click="addOption(field)"><i class="icon-plus icon-white"></i> Add Option</button>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="span2">Required:</div>
                         <div class="span4">
@@ -69,7 +80,7 @@
         </accordion>
 
         <p class="text-center">
-            <button class="btn btn-primary right" type="button" ng-click="previewToggle()"><i class="icon-eye-open icon-white"></i> Preview Form</button>
+            <button class="btn btn-primary right" type="button" ng-click="previewOn()"><i class="icon-eye-open icon-white"></i> Preview Form</button>
             <button class="btn btn-danger right" type="button" ng-click="reset()"><i class="icon-refresh icon-white"></i> Reset</button>
         </p>
 
@@ -83,11 +94,10 @@
     </div>
 
     <div class="form-fields-preview" ng-show="previewMode">
-        <form-directive form="form"></form-directive>
-
+        <form-directive form="previewForm"></form-directive>
 
         <p class="text-center">
-            <button class="btn btn-primary btn-large right" type="button" ng-click="previewToggle()"><i class="icon-arrow-left icon-white"></i> Back to Create Mode</button>
+            <button class="btn btn-primary btn-large right" type="button" ng-click="previewOff()"><i class="icon-arrow-left icon-white"></i> Back to Create Mode</button>
         </p>
     </div>
 </div>
