@@ -1,11 +1,10 @@
 /*!
- * jQuery Migrate - v1.1.1 - 2013-02-16
+ * jQuery Migrate - v1.1.0 - 2013-01-31
  * https://github.com/jquery/jquery-migrate
  * Copyright 2005, 2013 jQuery Foundation, Inc. and other contributors; Licensed MIT
  */
 (function( jQuery, window, undefined ) {
-// See http://bugs.jquery.com/ticket/13335
-// "use strict";
+"use strict";
 
 
 var warnedAbout = {};
@@ -79,7 +78,7 @@ if ( document.compatMode === "BackCompat" ) {
 }
 
 
-var attrFn = jQuery( "<input/>", { size: 1 } ).attr("size") && jQuery.attrFn,
+var attrFn = {},
 	oldAttr = jQuery.attr,
 	valueAttrGet = jQuery.attrHooks.value && jQuery.attrHooks.value.get ||
 		function() { return null; },
@@ -91,20 +90,17 @@ var attrFn = jQuery( "<input/>", { size: 1 } ).attr("size") && jQuery.attrFn,
 	ruseDefault = /^(?:checked|selected)$/i;
 
 // jQuery.attrFn
-migrateWarnProp( jQuery, "attrFn", attrFn || {}, "jQuery.attrFn is deprecated" );
+migrateWarnProp( jQuery, "attrFn", attrFn, "jQuery.attrFn is deprecated" );
 
 jQuery.attr = function( elem, name, value, pass ) {
 	var lowerName = name.toLowerCase(),
 		nType = elem && elem.nodeType;
 
-	if ( pass ) {
-		// Since pass is used internally, we only warn for new jQuery
-		// versions where there isn't a pass arg in the formal params
-		if ( oldAttr.length < 4 ) {
-			migrateWarn("jQuery.fn.attr( props, pass ) is deprecated");
-		}
-		if ( elem && !rnoAttrNodeType.test( nType ) &&
-			(attrFn ? name in attrFn : jQuery.isFunction(jQuery.fn[name])) ) {
+	// Since pass is used internally, we only warn and shim for new jQuery
+	// versions where there isn't a pass arg in the formal params
+	if ( pass && oldAttr.length < 4 ) {
+		migrateWarn("jQuery.fn.attr( props, pass ) is deprecated");
+		if ( elem && !rnoAttrNodeType.test( nType ) && jQuery.isFunction( jQuery.fn[ name ] ) ) {
 			return jQuery( elem )[ name ]( value );
 		}
 	}
@@ -241,28 +237,25 @@ jQuery.uaMatch = function( ua ) {
 	};
 };
 
-// Don't clobber any existing jQuery.browser in case it's different
-if ( !jQuery.browser ) {
-	matched = jQuery.uaMatch( navigator.userAgent );
-	browser = {};
+matched = jQuery.uaMatch( navigator.userAgent );
+browser = {};
 
-	if ( matched.browser ) {
-		browser[ matched.browser ] = true;
-		browser.version = matched.version;
-	}
-
-	// Chrome is Webkit, but Webkit is also Safari.
-	if ( browser.chrome ) {
-		browser.webkit = true;
-	} else if ( browser.webkit ) {
-		browser.safari = true;
-	}
-
-	jQuery.browser = browser;
+if ( matched.browser ) {
+	browser[ matched.browser ] = true;
+	browser.version = matched.version;
 }
 
+// Chrome is Webkit, but Webkit is also Safari.
+if ( browser.chrome ) {
+	browser.webkit = true;
+} else if ( browser.webkit ) {
+	browser.safari = true;
+}
+
+jQuery.browser = browser;
+
 // Warn if the code tries to get jQuery.browser
-migrateWarnProp( jQuery, "browser", jQuery.browser, "jQuery.browser is deprecated" );
+migrateWarnProp( jQuery, "browser", browser, "jQuery.browser is deprecated" );
 
 jQuery.sub = function() {
 	function jQuerySub( selector, context ) {
@@ -285,14 +278,6 @@ jQuery.sub = function() {
 	migrateWarn( "jQuery.sub() is deprecated" );
 	return jQuerySub;
 };
-
-
-// Ensure that $.ajax gets the new parseJSON defined in core.js
-jQuery.ajaxSetup({
-	converters: {
-		"text json": jQuery.parseJSON
-	}
-});
 
 
 var oldFnData = jQuery.fn.data;
@@ -382,7 +367,7 @@ var eventAdd = jQuery.event.add,
 	rajaxEvent = new RegExp( "\\b(?:" + ajaxEvents + ")\\b" ),
 	rhoverHack = /(?:^|\s)hover(\.\S+|)\b/,
 	hoverHack = function( events ) {
-		if ( typeof( events ) !== "string" || jQuery.event.special.hover ) {
+		if ( typeof( events ) != "string" || jQuery.event.special.hover ) {
 			return events;
 		}
 		if ( rhoverHack.test( events ) ) {
@@ -477,7 +462,7 @@ jQuery.fn.die = function( types, fn ) {
 
 // Turn global events into document-triggered events
 jQuery.event.trigger = function( event, data, elem, onlyHandlers  ){
-	if ( !elem && !rajaxEvent.test( event ) ) {
+	if ( !elem & !rajaxEvent.test( event ) ) {
 		migrateWarn( "Global events are undocumented and deprecated" );
 	}
 	return eventTrigger.call( this,  event, data, elem || document, onlyHandlers  );
