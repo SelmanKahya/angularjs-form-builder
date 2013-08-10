@@ -47,17 +47,6 @@
             </div>
         </div>
 
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src='//www.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-
-
-
         <!-- build:js scripts/plugins.js -->
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/angular/angular.js"></script>
@@ -80,20 +69,32 @@
         <script src="bower_components/angular-resource/angular-resource.js"></script>
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
         <script src="bower_components/angular-ui/build/angular-ui.js"></script>
-        <script src="lib/ui-bootstrap-tpls-0.4.0.min.js"></script>
         <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
 
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+
         <script src="scripts/controllers/main.js"></script>
-        <!-- endbuild -->
-        <script src="scripts/directives/form-directive.js"></script>
         <script src="scripts/controllers/create.js"></script>
         <script src="scripts/controllers/view.js"></script>
         <script src="scripts/controllers/header.js"></script>
+
         <script src="scripts/services/form-service.js"></script>
+
+        <script src="scripts/directives/form-directive.js"></script>
         <script src="scripts/directives/field-directive.js"></script>
+
+        <script src="lib/ui-bootstrap-tpls-0.4.0.min.js"></script>
         <!-- endbuild -->
-</body>
+
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+                g.src='//www.google-analytics.com/ga.js';
+                s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+  </body>
 </html>
