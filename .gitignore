@@ -1,7 +1,8 @@
 app/bower_components
 node_modules
 
-dist
+dist/*
+!dist/.git
 
 npm-debug.log
 .tmp
