@@ -1,41 +1,33 @@
 'use strict';
 
+// coffeescript's for in loop
+var __indexOf = [].indexOf || function(item) {
+        for (var i = 0, l = this.length; i < l; i++) {
+            if (i in this && this[i] === item) return i;
+        }
+        return -1;
+    };
+
 angularApp.directive('fieldDirective', function($http, $compile) {
 
     var getTemplateUrl = function(field) {
         var type = field.field_type;
-        var templateUrl = '';
+        var templateUrl = './views/directive-templates/field/';
+        var supported_fields = [
+            'textfield',
+            'email',
+            'textarea',
+            'checkbox',
+            'date',
+            'dropdown',
+            'hidden',
+            'password',
+            'radio'
+        ]
 
-        switch (type) {
-            case 'textfield':
-                templateUrl = './views/directive-templates/field/textfield.html';
-                break;
-            case 'email':
-                templateUrl = './views/directive-templates/field/email.html';
-                break;
-            case 'textarea':
-                templateUrl = './views/directive-templates/field/textarea.html';
-                break;
-            case 'checkbox':
-                templateUrl = './views/directive-templates/field/checkbox.html';
-                break;
-            case 'date':
-                templateUrl = './views/directive-templates/field/date.html';
-                break;
-            case 'dropdown':
-                templateUrl = './views/directive-templates/field/dropdown.html';
-                break;
-            case 'hidden':
-                templateUrl = './views/directive-templates/field/hidden.html';
-                break;
-            case 'password':
-                templateUrl = './views/directive-templates/field/password.html';
-                break;
-            case 'radio':
-                templateUrl = './views/directive-templates/field/radio.html';
-                break;
+        if (__indexOf.call(supported_fields, type) >= 0) {
+            return templateUrl += type + '.html';
         }
-        return templateUrl;
     }
 
     var linker = function(scope, element) {
