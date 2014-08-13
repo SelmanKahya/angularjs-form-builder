@@ -97,14 +97,6 @@ At the end, here is how it looks:
 </form-directive>
 ```
 
-### Known Issues
-
-I will try to fix those. Feel free to send me PRs.
-
-* Date-picker - calendar doesn't show up.
-
-* Drop-down - empty option appears as the first child of select element and default value doesn't get selected.
-
 ## Contact
 
  - Selman Kahya - ([website](http://www.selmanh.com)) - (hey@selmanh.com)
