@@ -43,11 +43,6 @@ It took plenty of time to finish this task. While doing it, I had to make 100+ s
  
 ## Launching the App
 
-* Change directory to the app folder  
- ``` 
-  $ cd app 
- ```
- 
 * Start the grunt server: 
  ```
   $ grunt server --force
