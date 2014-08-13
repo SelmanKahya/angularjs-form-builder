@@ -15,5 +15,8 @@
   "devDependencies": {
     "angular-mocks": "~1.0.7",
     "angular-scenario": "~1.0.7"
+  },
+  "resolutions": {
+    "bootstrap": ">=2.0.4 <3.0"
   }
 }
