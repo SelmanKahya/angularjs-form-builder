@@ -50,7 +50,7 @@ It took plenty of time to finish this task. While doing it, I had to make 100+ s
  
 * Start the grunt server: 
  ```
-  $ grunt server 
+  $ grunt server --force
  ```
  
 * It will open the AngularJS app in your default browser. 
