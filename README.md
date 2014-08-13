@@ -12,23 +12,62 @@ I have been working on AngularJS project for last couple of months. One of my as
 It took plenty of time to finish this task. While doing it, I had to make 100+ searches on Google, spend couple of days, and read a lot of stuff. So, I decided to create an open-source project and share my knowledge on this topic.
 
 ### Dependencies
+
 * AngularJS 1.0.7+
 * Bootstrap 2.3.2+
 * Grunt (to build the project) 0.4.1+
 
+## Installing the Application
+
+* First, install bower and grunt globally if you don't have already:
+ ```
+  $ npm install -g grunt
+  $ npm install -g bower 
+ ```
+
+* Then, clone git repo and cd to project folder: 
+ ``` 
+  $ git clone git@github.com:/selmanh/angularjs-form-builder.git 
+  $ cd angularjs-form-builder/ 
+ ```
+  
+* Now, you need to install required node packages: 
+ ``` 
+  $ npm install 
+ ``` 
+ 
+* And finally, install bower dependencies: 
+ ``` 
+  $ bower install 
+ ``` 
+ 
+## Launching the App
+
+* Change directory to the app folder  
+ ``` 
+  $ cd app 
+ ```
+ 
+* Start the grunt server: 
+ ```
+  $ grunt server 
+ ```
+ 
+* It will open the AngularJS app in your default browser. 
+
 ### Technical Details
 
-Currently, there are just one service (form-service) and two directives (form-directive and field-directive). 
+Currently, there are one service (form-service) and two directives (form-directive and field-directive). 
 
-Form service helps us to retrieve form properties from a json file. It also holds an array of possible fields that can be used while creating a new form.
+The form service helps to retrieve form properties from a json file. It also holds an array of possible fields that can be used while creating a new form.
 
-After getting the form variable, we use it in form-directive as follows:
+After getting the form variable, we use it in the form-directive as follows:
 
 ``` 
 <form-directive form="form"> </form-directive>
 ``` 
 
-And inside the form-directive, we use field-directive: 
+And inside the form-directive, we use the field-directive: 
 
 ```
 <div ng-repeat="field in form.fields">
@@ -63,7 +102,6 @@ At the end, here is how it looks:
 </form-directive>
 ```
 
-
 ### Known Issues
 
 I will try to fix those. Feel free to send me PRs.
@@ -71,22 +109,6 @@ I will try to fix those. Feel free to send me PRs.
 * Date-picker - calendar doesn't show up.
 
 * Drop-down - empty option appears as the first child of select element and default value doesn't get selected.
-
-## Installing Modules
-
-* First you need to install node_modules. Cd to repository folder.  ``` $cd angularjs-form-builder ```
-
-* Execute ``` $sudo npm install ```
-
-* Then execute ``` $sudo bower install ```
-
-## Launching the App
-
-* Change directory to app folder  ``` $cd app ```
-
-* Now, you can start the grunt server: ``` $grunt server ```
-
-* It will open the AngularJS app in your default browser. 
 
 ## Contact
 
