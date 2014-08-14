@@ -1,8 +1,13 @@
 <div class="field row">
     <div class="span2">{{field.field_title}}:</div>
     <div class="span4">
-        <select ng-model="field.field_value"ng-options="option.option_id as option.option_title for option in field.field_options"
-                sng-required="field.field_required"></select>
+		<select ng-model="field.field_value" ng-required="field.field_required">
+			<option ng-repeat="option in field.field_options" 
+					ng-selected="option.option_value == field.field_value"
+					value="{{option.option_id}}">
+				{{option.option_title}}
+			</option>
+        </select>    
         <span class="required-error" ng-show="field.field_required && !field.field_value">* required</span>
     </div>
 </div>
