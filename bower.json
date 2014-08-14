@@ -1,6 +1,6 @@
 {
   "name": "angularjsFormBuilder",
-  "version": "0.0.0",
+  "version": "0.2.1",
   "dependencies": {
     "angular": "~1.0.7",
     "json3": "~3.2.4",
