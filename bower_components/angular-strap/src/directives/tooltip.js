@@ -4,6 +4,10 @@ angular.module('$strap.directives')
 
 .directive('bsTooltip', function($parse, $compile) {
 
+  var type = 'tooltip',
+      dataPrefix = !!$.fn.emulateTransitionEnd ? 'bs.' : '',
+      evSuffix = dataPrefix ? '.' + dataPrefix + type : '';
+
   return {
     restrict: 'A',
     scope: true,
@@ -15,9 +19,7 @@ angular.module('$strap.directives')
 
       // Watch bsTooltip for changes
       scope.$watch(attrs.bsTooltip, function(newValue, oldValue) {
-        if(newValue !== oldValue) {
-          value = newValue;
-        }
+        value = newValue;
       });
 
       if(!!attrs.unique) {
@@ -25,7 +27,7 @@ angular.module('$strap.directives')
           // Hide any active popover except self
           $('.tooltip.in').each(function() {
             var $this = $(this),
-              tooltip = $this.data('tooltip');
+              tooltip = $this.data(dataPrefix + type);
             if(tooltip && !tooltip.$element.is(element)) {
               $this.tooltip('hide');
             }
@@ -40,11 +42,11 @@ angular.module('$strap.directives')
       });
 
       // Bootstrap override to provide events & tip() reference
-      var tooltip = element.data('tooltip');
+      var tooltip = element.data(dataPrefix + type);
       tooltip.show = function() {
         var r = $.fn.tooltip.Constructor.prototype.show.apply(this, arguments);
         // Bind tooltip to the tip()
-        this.tip().data('tooltip', this);
+        this.tip().data(dataPrefix + type, this);
         return r;
       };
 

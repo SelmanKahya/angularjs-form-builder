@@ -2,7 +2,13 @@
 
 angular.module('$strap.directives')
 
-.directive('bsButton', function($parse, $timeout) {
+.directive('bsButton', function($parse, $timeout, $strapConfig) {
+
+  var type = 'button',
+      dataPrefix = !!$.fn.emulateTransitionEnd ? 'bs.' : '',
+      evSuffix = dataPrefix ? '.' + dataPrefix + type : '';
+
+  var evName = 'click' + evSuffix + '.data-api';
 
   return {
     restrict: 'A',
@@ -38,7 +44,7 @@ angular.module('$strap.directives')
 
       // Support buttons without .btn class
       if(!element.hasClass('btn')) {
-        element.on('click.button.data-api', function (ev) {
+        element.on(evName, function (ev) {
           element.button('toggle');
         });
       }
@@ -47,7 +53,7 @@ angular.module('$strap.directives')
       element.button();
 
       // Bootstrap override to handle toggling
-      var button = element.data('button');
+      var button = element.data(dataPrefix + type);
       button.toggle = function() {
 
         if(!controller) {
@@ -113,6 +119,12 @@ angular.module('$strap.directives')
 
 .directive('bsButtonsRadio', function($timeout) {
 
+  var type = 'button',
+      dataPrefix = !!$.fn.emulateTransitionEnd ? 'bs.' : '',
+      evSuffix = dataPrefix ? '.' + dataPrefix + type : '';
+
+  var evName = 'click' + evSuffix + '.data-api';
+
   return {
     restrict: 'A',
     require: '?ngModel',
@@ -137,9 +149,9 @@ angular.module('$strap.directives')
               .find('[value]').button()
               .filter('[value="' + controller.$viewValue + '"]')
               .addClass('active');
-          });
+          }, 0, false);
 
-          iElement.on('click.button.data-api', function (ev) {
+          iElement.on(evName, function (ev) {
             scope.$apply(function () {
               controller.$setViewValue($(ev.target).closest('button').attr('value'));
             });
@@ -151,7 +163,6 @@ angular.module('$strap.directives')
               var $btn = iElement.find('[value="' + scope.$eval(iAttrs.ngModel) + '"]');
               if($btn.length) {
                 $btn.button('toggle');
-                // $.fn.button.Constructor.prototype.toggle.call($btn.data('button'));
               }
             }
           });

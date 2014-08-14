@@ -3,7 +3,7 @@
     <span class="required-error" ng-show="field.field_required && !field.field_value">* required </span>
     <div class="span4">
         <div class="control-group input-append">
-            <input type="text" ng-model="field.field_value" data-date-format="mm/dd/yyyy" bs-datepicker="" ng-required="field.field_required">
+            <input type="text" ng-model="field.field_value" data-date-format="mm/dd/yyyy" bs-datepicker="" ng-required="field.field_required" ng-disabled="field.field_disabled">
             <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
         </div>
     </div>

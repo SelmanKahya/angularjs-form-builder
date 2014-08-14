@@ -1,0 +1,28 @@
+{
+  "author": "Olivier Louvignes",
+  "name": "angular-strap",
+  "description": "AngularStrap - Twitter Bootstrap directives for AngularJS",
+  "version": "0.7.8",
+  "homepage": "http://mgcrea.github.com/angular-strap",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/angular-strap/angular-strap.git"
+  },
+  "main": "./dist/angular-strap.min.js",
+  "dependencies": {
+    "jquery": ">= 1.8.0",
+    "bootstrap": ">= 2.2.0",
+    "bootstrap-datepicker": ">= 1.0.0",
+    "bootstrap-timepicker": ">= 0.2.2",
+    "bootstrap-select": "latest"
+  },
+  "_release": "0.7.8",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.7.8",
+    "commit": "1dd96b9532c15eb044541ecc87cfaa856c1b239a"
+  },
+  "_source": "git://github.com/mgcrea/angular-strap.git",
+  "_target": "~0.7.5",
+  "_originalSource": "angular-strap"
+}

@@ -23,12 +23,12 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     meta: {
       banner: '/**\n' +
-      ' * <%= pkg.description %>\n' +
-      ' * @version v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      ' * @link <%= pkg.homepage %>\n' +
-      ' * @author <%= pkg.author %>\n' +
-      ' * @license MIT License, http://www.opensource.org/licenses/MIT\n' +
-      ' */\n'
+        ' * <%= pkg.description %>\n' +
+        ' * @version v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+        ' * @link <%= pkg.homepage %>\n' +
+        ' * @author <%= pkg.author %>\n' +
+        ' * @license MIT License, http://www.opensource.org/licenses/MIT\n' +
+        ' */\n\n'
     },
     watch: {
       livereload: {
@@ -105,6 +105,15 @@ module.exports = function(grunt) {
         banner: '<%= meta.banner %>'
       },
       dist: {
+        options: {
+          // Replace all 'use strict' statements in the code with a single one at the top
+          banner: '(function(window, document, undefined) {\n\'use strict\';\n',
+          footer: '\n})(window, document);\n',
+          process: function(src, filepath) {
+            return '// Source: ' + filepath + '\n' +
+              src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1');
+          }
+        },
         files: {
           '<%= yeoman.dist %>/<%= pkg.name %>.js': [
             '<%= yeoman.src %>/common.js',
@@ -113,11 +122,9 @@ module.exports = function(grunt) {
         }
       },
       banner: {
-        files: {
-          '<%= yeoman.dist %>/<%= pkg.name %>.js': [
-            '<%= yeoman.dist %>/<%= pkg.name %>.js'
-          ]
-        }
+        banner: '<%= meta.banner %>',
+        src: ['<%= yeoman.dist %>/<%= pkg.name %>.js'],
+        dest: '<%= yeoman.dist %>/<%= pkg.name %>.js'
       }
     },
     ngmin: {
@@ -135,9 +142,6 @@ module.exports = function(grunt) {
       }
     },
     uglify: {
-      options: {
-        banner: '<%= meta.banner %>'
-      },
       dist: {
         files: {
           '<%= yeoman.dist %>/<%= pkg.name %>.min.js': [
@@ -147,8 +151,6 @@ module.exports = function(grunt) {
       }
     }
   });
-
-  grunt.renameTask('regarde', 'watch');
 
   grunt.registerTask('server', [
     'clean:server',

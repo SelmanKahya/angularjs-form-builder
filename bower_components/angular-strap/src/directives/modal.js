@@ -1,10 +1,15 @@
+
 'use strict';
 
 angular.module('$strap.directives')
 
 .factory('$modal', function($rootScope, $compile, $http, $timeout, $q, $templateCache, $strapConfig) {
 
-  var ModalFactory = function ModalFactory(config) {
+  var type = 'modal',
+      dataPrefix = !!$.fn.emulateTransitionEnd ? 'bs.' : '',
+      evSuffix = dataPrefix ? '.' + dataPrefix + type : '';
+
+  var ModalFactory = function ModalFactoryFn(config) {
 
     function Modal(config) {
 
@@ -17,7 +22,8 @@ angular.module('$strap.directives')
 
         // Build modal object
         var id = templateUrl.replace('.html', '').replace(/[\/|\.|:]/g, '-') + '-' + scope.$id;
-        var $modal = $('<div class="modal hide" tabindex="-1"></div>').attr('id', id).addClass('fade').html(template);
+        var $modal = $('<div class="modal" tabindex="-1"></div>').attr('id', id).addClass('fade').html(template);
+        if(!$.fn.emulateTransitionEnd) $modal.addClass('hide');
         if(options.modalClass) $modal.addClass(options.modalClass);
 
         $('body').append($modal);
@@ -40,17 +46,17 @@ angular.module('$strap.directives')
 
         // Emit modal events
         angular.forEach(['show', 'shown', 'hide', 'hidden'], function(name) {
-          $modal.on(name, function(ev) {
+          $modal.on(name + evSuffix, function(ev) {
             scope.$emit('modal-' + name, ev);
           });
         });
 
         // Support autofocus attribute
-        $modal.on('shown', function(ev) {
+        $modal.on('shown' + evSuffix, function(ev) {
           $('input[autofocus], textarea[autofocus]', $modal).first().trigger('focus');
         });
         // Auto-remove $modal created via service
-        $modal.on('hidden', function(ev) {
+        $modal.on('hidden' + evSuffix, function(ev) {
           if(!options.persist) scope.$destroy();
         });
 

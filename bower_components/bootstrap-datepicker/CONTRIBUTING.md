@@ -10,6 +10,7 @@ If you've found a bug in bootstrap-datepicker, we want to know about it!  Howeve
 
 * This is not the bootstrap-datepicker from [eyecon.ro](http://www.eyecon.ro/bootstrap-datepicker/).  Stefan provided the initial code for bootstrap-datepicker, but this repo is divergent from his codebase.  Please make sure you're using either the latest tagged version or the latest master from https://github.com/eternicode/bootstrap-datepicker/ .
 * A working example of the bug you've found is *much* easier to work with than a  description alone.  If possible, please provide a link to a demonstration of the bug, perhaps using http://jsfiddle.net/ .
+  * CDN-backed assets can be found at http://bsdp-assets.blackcherry.us/ .  These should be used *only* for building test cases, as they may be removed or changed at any time.
 * Finally, it's possible someone else has already reported the same bug you have.  Please search the issue tracker for similar issues before posting your own.  Thanks!
 
 ## Pull Requests
@@ -20,21 +21,21 @@ For all cases, you should have your own fork of the repo.
 
 To submit a pull request for a **new feature**:
 
-1. Run the tests.  Every pull request for a new feature should have an accompanying unit test.  See the README in the `tests/` directory for details.
-2. Create a new branch off of the `master` branch for your feature, with a name following the pattern `feature/<description>`, where `<description>` is a short description of the new feature.  This is particularly helpful when you want to submit multiple pull requests.
+1. Run the tests.  Every pull request for a new feature should have an accompanying unit test and docs changes.  See the README in the `tests/` and `docs/` directories for details.
+2. Create a new branch off of the `master` branch for your feature.  This is particularly helpful when you want to submit multiple pull requests.
 3. Add a test (or multiple tests) for your feature.  Again, see `tests/README.md`.
 4. Add your new feature, making the test pass.
 5. Push to your fork and submit the pull request!
 
 To submit a **bug fix**:
 
-1. Create a new branch off of the `master` branch, with a name following the pattern `bug/<description>`.
+1. Create a new branch off of the `master` branch.
 2. Add a test that demonstrates the bug.
 3. Make the test pass.
-4. Push to your fork and submit the pll request!
+4. Push to your fork and submit the pull request!
 
 To submit a **documentation fix**:
 
-1. Create a new branch off of the `master` branch, with a name following the pattern `docs/<description>`.
+1. Create a new branch off of the `master` branch.
 2. Add your documentation fixes (no tests required).
 3. Push to your fork and submit the pull request!
