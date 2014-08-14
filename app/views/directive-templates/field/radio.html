@@ -3,7 +3,7 @@
     <div class="span4">
         <div ng-repeat="option in field.field_options" class="row-fluid">
             <label>
-                <input type="radio" value="{{option.option_value}}" ng-model="field.field_value"  ng-required="field.field_required"/>
+                <input type="radio" value="{{option.option_value}}" ng-model="field.field_value"  ng-required="field.field_required" ng-disabled="field.field_disabled"/>
                 &nbsp;<span ng-bind="option.option_title"></span>
             </label>
         </div>

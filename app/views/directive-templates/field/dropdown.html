@@ -1,7 +1,7 @@
 <div class="field row">
     <div class="span2">{{field.field_title}}:</div>
     <div class="span4">
-		<select ng-model="field.field_value" ng-required="field.field_required">
+		<select ng-model="field.field_value" ng-required="field.field_required" ng-disabled="field.field_disabled">
 			<option ng-repeat="option in field.field_options" 
 					ng-selected="option.option_value == field.field_value"
 					value="{{option.option_id}}">

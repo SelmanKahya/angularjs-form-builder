@@ -62,6 +62,9 @@
                             <button class="btn btn-primary btn-small" type="button" ng-click="addOption(field)"><i class="icon-plus icon-white"></i> Add Option</button>
                         </div>
                     </div>
+
+					<div class="clear"></div> <hr>
+
                     <div class="row">
                         <div class="span2">Required:</div>
                         <div class="span4">
@@ -71,6 +74,22 @@
                             </label>
                             <label>
                                 <input type="radio" ng-value="false" ng-model="field.field_required"/>
+                                &nbsp; No
+                            </label>
+                        </div>
+                    </div>
+					
+					<div class="clear"></div> <hr>
+
+					<div class="row">
+						<div class="span2">Disabled:</div>
+                        <div class="span4">
+                            <label>
+                                <input type="radio" ng-value="true" ng-selected ng-model="field.field_disabled"/>
+                                &nbsp; Yes
+                            </label>
+                            <label>
+                                <input type="radio" ng-value="false" ng-model="field.field_disabled"/>
                                 &nbsp; No
                             </label>
                         </div>

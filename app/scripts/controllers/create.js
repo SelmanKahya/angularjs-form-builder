@@ -36,7 +36,8 @@ angularApp.controller('CreateCtrl', function ($scope, $dialog, FormService) {
             "field_title" : "New field - " + ($scope.addField.lastAddedID),
             "field_type" : $scope.addField.new,
             "field_value" : "",
-            "field_required" : true
+            "field_required" : true,
+			"field_disabled" : false
         };
 
         // put newField into fields array
