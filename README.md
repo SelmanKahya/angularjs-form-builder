@@ -98,5 +98,5 @@ At the end, here is how it looks:
 ```
 
 ## Contact
-
+ - License: MIT
  - Selman Kahya - ([website](http://www.selmanh.com)) - (hey@selmanh.com)
