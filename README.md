@@ -21,6 +21,7 @@ It took plenty of time to finish this task. While doing it, I had to make 100+ s
 
 * First, install bower and grunt globally if you don't have already:
  ```
+  $ npm install -g grunt-cli
   $ npm install -g grunt
   $ npm install -g bower 
  ```
