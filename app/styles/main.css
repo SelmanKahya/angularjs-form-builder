@@ -49,12 +49,26 @@ body {
   margin-bottom: 0px;
 }
 
+.form-fields{
+  display: inline-block;
+  width: 50%;
+  padding-right: 20px;
+  border-right: 2px solid;
+}
+
 .form-fields .accordion-group{
   border: 1px solid #AAAAAA;
 }
 
 .form-fields .accordion-heading{
   background-color: #E2E2E2;
+}
+
+.form-fields-preview{
+  display: inline-block;
+  vertical-align: top;
+  width: 42%;
+  padding-left: 20px;
 }
 
 .accordion-edit div, .field div{
