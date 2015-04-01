@@ -2,10 +2,14 @@
 
 angularApp.directive('formDirective', function () {
     return {
-        controller: function($scope){
+        controller: function($scope, $timeout){
             $scope.submit = function(){
                 alert('Form submitted..');
                 $scope.form.submitted = true;
+
+                $timeout(function(){
+                    $scope.form.submitted = false;
+                }, 4000);
             }
 
             $scope.cancel = function(){
