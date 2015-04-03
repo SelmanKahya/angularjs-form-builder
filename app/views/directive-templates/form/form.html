@@ -7,7 +7,7 @@
     </div>
     <form name="myForm" id="myForm">
         <div ng-repeat="field in form.form_fields">
-            <field-directive field="field">
+            <field-directive field="field" ng-bind="form.form_fields">
 
             </field-directive>
         </div>
