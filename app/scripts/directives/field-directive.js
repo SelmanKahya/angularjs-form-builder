@@ -40,7 +40,7 @@ angularApp.directive('fieldDirective', function($http, $compile) {
     }
 
     return {
-        template: '<div>{{field}}</div>',
+        template: '<div ng-bind="field"></div>',
         restrict: 'E',
         scope: {
             field: '='
