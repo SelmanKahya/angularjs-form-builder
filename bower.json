@@ -4,7 +4,7 @@
   "dependencies": {
     "angular": "~1.0.7",
     "json3": "~3.2.4",
-    "jquery": "~1.9.1",
+    "jquery": "~2.2.0",
     "bootstrap-sass": "~3.3.4",
     "es5-shim": "~2.0.8",
     "angular-resource": "~1.0.7",
