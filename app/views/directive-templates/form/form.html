@@ -1,4 +1,4 @@
-<h2>{{ form.form_name }}</h2>
+<h3>{{ form.form_name }}</h3>
 
 <div ng-show="!form.submitted">
     <div class="field row">
@@ -7,7 +7,7 @@
     </div>
     <form name="myForm" id="myForm">
         <div ng-repeat="field in form.form_fields">
-            <field-directive field="field">
+            <field-directive field="field" ng-bind="form.form_fields">
 
             </field-directive>
         </div>

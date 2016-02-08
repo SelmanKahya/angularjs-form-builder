@@ -99,11 +99,10 @@
         </accordion>
 
         <p class="text-center">
-            <button class="btn btn-primary right" type="button" ng-click="previewOn()"><i class="icon-eye-open icon-white"></i> Preview Form</button>
             <button class="btn btn-danger right" type="button" ng-click="reset()"><i class="icon-refresh icon-white"></i> Reset</button>
         </p>
 
-        <br><hr>
+        <hr>
 
 		<div class="text-center">
 			<a class="btn btn-small btn-primary" ng-show="!showJson" ng-click="showJson = true">Show form json object</a>
@@ -116,12 +115,9 @@
         </div>
     </div>
 
-    <div class="form-fields-preview" ng-show="previewMode">
-        <form-directive form="previewForm"></form-directive>
-
-        <p class="text-center">
-            <button class="btn btn-primary btn-large right" type="button" ng-click="previewOff()"><i class="icon-arrow-left icon-white"></i> Back to Create Mode</button>
-        </p>
+    <div class="form-fields-preview">
+        <h3>Form Preview</h3>
+        <form-directive form="form"></form-directive>
     </div>
 </div>
 
