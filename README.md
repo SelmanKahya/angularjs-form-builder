@@ -3,7 +3,7 @@ angularjs-form-builder
 
 A simple form builder application written in AngularJS. It uses custom directives.
 
-For a complete overview of the project and features, see http://selmanh.github.io/angularjs-form-builder
+For a complete overview of the project and features, see http://selmankahya.github.io/angularjs-form-builder
 
 ## About
 
